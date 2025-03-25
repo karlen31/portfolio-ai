@@ -19,11 +19,11 @@ export default function Home() {
                 <div className="relative w-32 h-32 mx-auto mb-8">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
                   <div className="absolute inset-2 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-gray-800 dark:text-white">JD</span>
+                    <span className="text-4xl font-bold text-gray-800 dark:text-white">KE</span>
                   </div>
                 </div>
                 <h1 className="text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-                  John Doe
+                  Karl Eñano
                 </h1>
                 <p className="hero-subtitle text-xl text-gray-600 dark:text-gray-300 mb-8">
                   Full Stack Developer | UI/UX Designer | Problem Solver
@@ -156,7 +156,7 @@ export default function Home() {
             {/* Footer */}
             <footer className="py-8 px-4 bg-gray-50 dark:bg-gray-900">
               <div className="max-w-4xl mx-auto text-center text-gray-600 dark:text-gray-300">
-                <p>© 2024 John Doe. All rights reserved.</p>
+                <p>© 2025 Karl Eñano. All rights reserved.</p>
                 <div className="flex justify-center gap-6 mt-4">
                   <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400">GitHub</a>
                   <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400">LinkedIn</a>

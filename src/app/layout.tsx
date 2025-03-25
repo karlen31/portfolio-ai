@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from '@/components/Navbar';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'My professional portfolio',
+  title: 'Karl Eñano - Portfolio',
+  description: 'Full Stack Developer Portfolio',
 };
 
 export default function RootLayout({
@@ -27,7 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <Navbar />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   )
