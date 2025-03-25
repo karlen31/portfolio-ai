@@ -23,4 +23,50 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove smooth scroll wrapper styles that might conflict */
+#smooth-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#smooth-content {
+  position: relative;
+  width: 100%;
+}
+
+/* Hide scrollbar but allow scrolling */
+#smooth-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#smooth-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+.no-fouc {
+  visibility: hidden;
+}
+
+/* Animation helper classes */
+.gsap-reveal {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Ensure text remains sharp during transforms */
+* {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
