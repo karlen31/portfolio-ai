@@ -1,27 +1,17 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
 import { SplitText } from 'gsap/dist/SplitText';
 
 export function useInitialAnimation() {
   useEffect(() => {
     // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+    gsap.registerPlugin(ScrollTrigger, SplitText);
 
     // Wait for DOM to be ready
     const ctx = gsap.context(() => {
-      // Create smooth scrolling
-      ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1,
-        effects: true,
-        smoothTouch: 0.1,
-      });
-
       // Hero section animation
       const heroTimeline = gsap.timeline({ delay: 0.2 });
       
@@ -54,7 +44,7 @@ export function useInitialAnimation() {
         }, "-=0.2");
 
       // Scroll animations for sections
-      gsap.utils.toArray('section').forEach((section: any) => {
+      gsap.utils.toArray<HTMLElement>('section').forEach((section) => {
         const cards = section.querySelectorAll('.animate-card');
         const title = section.querySelector('h2');
         
@@ -110,9 +100,6 @@ export function useInitialAnimation() {
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
-      if (ScrollSmoother.get()) {
-        ScrollSmoother.get()?.kill();
-      }
       ctx.revert();
     };
   }, []);
