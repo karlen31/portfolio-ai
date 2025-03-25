@@ -3,17 +3,17 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { SplitText } from 'gsap/dist/SplitText';
 
 export function useInitialAnimation() {
   useEffect(() => {
     // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger, SplitText);
+    gsap.registerPlugin(ScrollTrigger);
 
     // Wait for DOM to be ready
     const ctx = gsap.context(() => {
       // Initial page load animation
-      gsap.set([".hero-avatar", "h1", ".hero-subtitle", ".hero-buttons"], { opacity: 0 });
+      gsap.set([".hero-avatar", ".hero-subtitle", ".hero-buttons"], { opacity: 0 });
+      gsap.set("h1", { opacity: 0, y: 20 });
       
       // Avatar animation
       const avatarTimeline = gsap.timeline({ delay: 0.5 });
@@ -42,42 +42,24 @@ export function useInitialAnimation() {
       // Text animations
       const heroTimeline = gsap.timeline({ delay: 0.8 });
       
-      // Split and animate the title text
-      const titleSplit = new SplitText("h1", { type: "chars,words" });
-      const subtitleSplit = new SplitText(".hero-subtitle", { type: "chars,words" });
-
-      // Fancy title animation
+      // Title animation
       heroTimeline
-        .from(titleSplit.chars, {
-          opacity: 0,
-          y: 50,
-          rotateX: -90,
-          stagger: 0.02,
-          duration: 0.7,
-          ease: "back.out(1.7)",
-          onComplete: () => {
-            // Revert the split text after animation
-            titleSplit.revert();
-          }
-        })
-        // Subtitle animation with wave effect
-        .from(subtitleSplit.chars, {
-          opacity: 0,
-          y: (i) => Math.sin(i * 0.5) * 50,
-          rotateZ: (i) => Math.sin(i * 0.5) * 45,
-          stagger: 0.02,
+        .to("h1", {
+          opacity: 1,
+          y: 0,
           duration: 0.8,
+          ease: "back.out(1.7)",
+        })
+        .to(".hero-subtitle", {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
           ease: "power2.out",
-          onComplete: () => {
-            // Revert the split text after animation
-            subtitleSplit.revert();
-          }
         }, "-=0.4")
-        // Button animations
-        .from(".hero-buttons a", {
-          opacity: 0,
-          scale: 0.8,
-          y: 30,
+        .to(".hero-buttons a", {
+          opacity: 1,
+          scale: 1,
+          y: 0,
           stagger: 0.1,
           duration: 0.6,
           ease: "back.out(1.7)",
