@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Navbar() {
@@ -14,25 +13,14 @@ export default function Navbar() {
 
   useEffect(() => {
     // Register GSAP plugins
-    gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-
-    // Initialize ScrollSmoother
-    const smoother = ScrollSmoother.create({
-      wrapper: '#smooth-wrapper',
-      content: '#smooth-content',
-      smooth: 1.5,
-      effects: true
-    });
+    gsap.registerPlugin(ScrollTrigger);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      smoother.kill();
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -43,13 +31,9 @@ export default function Navbar() {
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: offsetPosition,
-          offsetY: headerOffset
-        },
-        ease: "power2.inOut"
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
     }
     setIsMenuOpen(false);
