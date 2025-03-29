@@ -84,11 +84,11 @@ export default function Home() {
                 <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Featured Projects</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="animate-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="h-48 relative">
+                    <div className="h-[400px] relative bg-[#0F1218]">
                       <img 
                         src="/projects/ssr-vs-ssg-preview.png" 
                         alt="SSR vs SSG Comparison Project Preview"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <div className="p-6">
