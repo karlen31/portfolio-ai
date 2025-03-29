@@ -83,25 +83,54 @@ export default function Home() {
               <div className="max-w-4xl mx-auto">
                 <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Featured Projects</h2>
                 <div className="grid md:grid-cols-2 gap-8">
-                  {[1, 2].map((project) => (
-                    <div key={project} className="animate-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                      <div className="h-48 bg-gray-200 dark:bg-gray-700"></div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Project {project}</h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
-                          A brief description of the project and its key features.
-                        </p>
-                        <div className="flex gap-2">
-                          <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
-                            React
-                          </span>
-                          <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-sm">
-                            Node.js
-                          </span>
-                        </div>
+                  <div className="animate-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <div className="h-48 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">SSR vs SSG Comparison</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        A comprehensive comparison of Server-Side Rendering (SSR) and Static Site Generation (SSG) in Next.js, demonstrating the differences and use cases for each approach.
+                      </p>
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
+                          Next.js
+                        </span>
+                        <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-sm">
+                          React
+                        </span>
+                        <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-sm">
+                          TypeScript
+                        </span>
+                      </div>
+                      <a 
+                        href="https://ssr-vs-ssg-seven.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  </div>
+                  <div className="animate-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <div className="h-48 bg-gradient-to-r from-green-500 to-blue-500"></div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Portfolio Website</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        A modern, responsive portfolio website built with Next.js and Tailwind CSS, featuring smooth animations and a clean design.
+                      </p>
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
+                          Next.js
+                        </span>
+                        <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-sm">
+                          Tailwind CSS
+                        </span>
+                        <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-sm">
+                          TypeScript
+                        </span>
                       </div>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </section>
